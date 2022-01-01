@@ -28,29 +28,29 @@ def get_token(text: str) -> Optional[str]:
 
 async def _make_register_request(user_id: int, token: str) -> bool:
     async with httpx.AsyncClient() as client:
-        data = {
-            "token": token,
-            "user": user_id,
-            "status": "pending"
-        }
-        response = await client.post(MANAGER_URL, json=data, headers={"Authorization": MANAGER_API_KEY})
+        data = {"token": token, "user": user_id, "status": "pending"}
+        response = await client.post(
+            MANAGER_URL, json=data, headers={"Authorization": MANAGER_API_KEY}
+        )
         return response.status_code == 200
 
 
 @dp.message_handler(commands=["start", "help"])
 async def welcome(message: types.Message):
-    await message.reply("""
+    await message.reply(
+        """
 Зарегиструй бота в @BotFather .
 И перешли сюда сообщение об успешной регистрации.
 (Начинается с: Done! Congratulations on your new bot.)
-    """)
+    """
+    )
 
 
 @dp.message_handler()
 async def register(message: types.Message):
     if not message.text:
         return await message.reply("Присылай сюда текст!")
-    
+
     token = get_token(message.text)
 
     if token is None:
@@ -72,5 +72,5 @@ async def register(message: types.Message):
         await bot.close()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     executor.start_polling(dp)
