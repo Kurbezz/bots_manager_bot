@@ -6,8 +6,8 @@ authors = ["Kurbanov Bulat <kurbanovbul@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-aiogram = {extras = ["speedups"], version = "^2.17.1"}
-httpx = "^0.21.1"
+aiogram = {version = "2.18", extras = ["speedups"]}
+httpx = "0.21.3"
 
 [tool.poetry.dev-dependencies]
 

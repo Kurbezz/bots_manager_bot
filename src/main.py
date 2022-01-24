@@ -28,7 +28,12 @@ def get_token(text: str) -> Optional[str]:
 
 async def _make_register_request(user_id: int, token: str) -> bool:
     async with httpx.AsyncClient() as client:
-        data = {"token": token, "user": user_id, "status": "pending"}
+        data = {
+            "token": token,
+            "user": user_id,
+            "status": "pending",
+            "cache": "no_cache",
+        }
         response = await client.post(
             MANAGER_URL, json=data, headers={"Authorization": MANAGER_API_KEY}
         )
@@ -63,13 +68,14 @@ async def register(message: types.Message):
         registered = await _make_register_request(message.from_user.id, token)
 
         if registered:
-            await message.reply(f"@{me.username} зарегистрирован!")
+            await message.reply(
+                f"@{me.username} зарегистрирован "
+                "и через несколько минут будет подключен!"
+            )
         else:
             await message.reply("Ошибка! Возможно бот уже зарегистрирован!")
     except Exception:
         await message.reply("Ошибка! Что-то не так с ботом!")
-    finally:
-        await bot.close()
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 [[package]]
 name = "aiogram"
-version = "2.17.1"
+version = "2.18"
 description = "Is a pretty simple and fully asynchronous framework for Telegram Bot API"
 category = "main"
 optional = false
@@ -150,7 +150,7 @@ http2 = ["h2 (>=3,<5)"]
 
 [[package]]
 name = "httpx"
-version = "0.21.1"
+version = "0.21.3"
 description = "The next generation HTTP client."
 category = "main"
 optional = false
@@ -229,12 +229,12 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "c894eb4068eaec40317ea4d3110fb7dd1061a04d85f22e324d8a490f576209d1"
+content-hash = "798a47b7550faafdbfc0b6ad0829e1e4029c3614b5f7fca848cbb614d447b046"
 
 [metadata.files]
 aiogram = [
-    {file = "aiogram-2.17.1-py3-none-any.whl", hash = "sha256:6721a29c90851749d19289249f97bea42d7c8b8e7e5273c5c48a88c87d629143"},
-    {file = "aiogram-2.17.1.tar.gz", hash = "sha256:c37ad3033ba1d6025e6f99cef077f886d68e66bf21365603aa9093dc1d667fae"},
+    {file = "aiogram-2.18-py3-none-any.whl", hash = "sha256:ffe51749cdc92d24db74a2636b5ca8e6a5a3e504d01f47b47a206d93ea6cad18"},
+    {file = "aiogram-2.18.tar.gz", hash = "sha256:d08398f317ffdfb5436ff20211d597d1777cb00967d24a8f57e47a2303ad0965"},
 ]
 aiohttp = [
     {file = "aiohttp-3.8.1-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:1ed0b6477896559f17b9eaeb6d38e07f7f9ffe40b9f0f9627ae8b9926ae260a8"},
@@ -421,8 +421,8 @@ httpcore = [
     {file = "httpcore-0.14.3.tar.gz", hash = "sha256:d10162a63265a0228d5807964bd964478cbdb5178f9a2eedfebb2faba27eef5d"},
 ]
 httpx = [
-    {file = "httpx-0.21.1-py3-none-any.whl", hash = "sha256:208e5ef2ad4d105213463cfd541898ed9d11851b346473539a8425e644bb7c66"},
-    {file = "httpx-0.21.1.tar.gz", hash = "sha256:02af20df486b78892a614a7ccd4e4e86a5409ec4981ab0e422c579a887acad83"},
+    {file = "httpx-0.21.3-py3-none-any.whl", hash = "sha256:df9a0fd43fa79dbab411d83eb1ea6f7a525c96ad92e60c2d7f40388971b25777"},
+    {file = "httpx-0.21.3.tar.gz", hash = "sha256:7a3eb67ef0b8abbd6d9402248ef2f84a76080fa1c839f8662e6eb385640e445a"},
 ]
 idna = [
     {file = "idna-3.3-py3-none-any.whl", hash = "sha256:84d9dd047ffa80596e0f246e2eab0b391788b0503584e8945f2368256d2735ff"},
