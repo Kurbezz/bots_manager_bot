@@ -10,7 +10,7 @@ BOT_TOKEN = os.environ["BOT_TOKEN"]
 MANAGER_URL = os.environ["MANAGER_URL"]
 MANAGER_API_KEY = os.environ["MANAGER_API_KEY"]
 
-token_regexp = re.compile(r"[0-9]+:[0-9a-zA-Z-]+")
+token_regexp = re.compile(r"[0-9]+:[0-9a-zA-Z-_]+")
 
 
 bot = Bot(token=BOT_TOKEN)
