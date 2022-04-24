@@ -1,4 +1,3 @@
-import os
 import re
 from typing import Optional
 
@@ -14,14 +13,10 @@ sentry_sdk.init(
 )
 
 
-BOT_TOKEN = os.environ["BOT_TOKEN"]
-MANAGER_URL = os.environ["MANAGER_URL"]
-MANAGER_API_KEY = os.environ["MANAGER_API_KEY"]
-
 token_regexp = re.compile(r"[0-9]+:[0-9a-zA-Z-_]+")
 
 
-bot = Bot(token=BOT_TOKEN)
+bot = Bot(token=env_config.BOT_TOKEN)
 dp = Dispatcher(bot)
 
 
@@ -43,7 +38,9 @@ async def _make_register_request(user_id: int, token: str) -> bool:
             "cache": "no_cache",
         }
         response = await client.post(
-            MANAGER_URL, json=data, headers={"Authorization": MANAGER_API_KEY}
+            env_config.MANAGER_URL,
+            json=data,
+            headers={"Authorization": env_config.MANAGER_API_KEY},
         )
         return response.status_code == 200
 
