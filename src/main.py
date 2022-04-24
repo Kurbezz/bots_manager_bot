@@ -4,6 +4,14 @@ from typing import Optional
 
 from aiogram import Bot, Dispatcher, executor, types
 import httpx
+import sentry_sdk
+
+from .config import env_config
+
+
+sentry_sdk.init(
+    env_config.SENTRY_DSN,
+)
 
 
 BOT_TOKEN = os.environ["BOT_TOKEN"]
