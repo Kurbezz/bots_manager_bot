@@ -5,7 +5,7 @@ from aiogram import Bot, Dispatcher, executor, types
 import httpx
 import sentry_sdk
 
-from .config import env_config
+from config import env_config
 
 
 sentry_sdk.init(
@@ -49,7 +49,7 @@ async def _make_register_request(user_id: int, token: str) -> bool:
 async def welcome(message: types.Message):
     await message.reply(
         """
-Зарегиструй бота в @BotFather .
+Зарегистрируй бота в @BotFather .
 И перешли сюда сообщение об успешной регистрации.
 (Начинается с: Done! Congratulations on your new bot.)
     """
