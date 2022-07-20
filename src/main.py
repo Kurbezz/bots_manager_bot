@@ -29,10 +29,11 @@ def get_token(text: str) -> Optional[str]:
     return None
 
 
-async def _make_register_request(user_id: int, token: str) -> bool:
+async def _make_register_request(user_id: int, token: str, username: str) -> bool:
     async with httpx.AsyncClient() as client:
         data = {
             "token": token,
+            "username": username,
             "user": user_id,
             "status": "pending",
             "cache": "no_cache",
@@ -70,7 +71,9 @@ async def register(message: types.Message):
 
     try:
         me = await test_bot.get_me()
-        registered = await _make_register_request(message.from_user.id, token)
+        registered = await _make_register_request(
+            message.from_user.id, token, me.username
+        )
 
         if registered:
             await message.reply(
